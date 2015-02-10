@@ -1,0 +1,35 @@
+Programming Assignment #1: Part 1:
+Write a function named 'pollutantmean' that calculates the mean of a pollutant (sulfate or nitrate) across a specified list of monitors. The function 'pollutantmean' takes three arguments: 'directory', 'pollutant', and 'id'. Given a vector monitor ID numbers, 'pollutantmean' reads that monitors' particulate matter data from the directory specified in the 'directory' argument and returns the mean of the pollutant across all of the monitors, ignoring any missing values coded as NA.
+
+I'm stuck on the code below. I think it has to do with the loop because I am able to do it individually. I've looked up most sites and haven't found anything that helps, so any help would be appreciated. If you need any more info, please feel free to let me know. 
+
+Thanks!
+
+-CP
+
+# "specdata" is a character vector of length 1 indicating the location of the 
+# csv files.
+
+specdata <- ("C:/Users/Christian/Desktop/Coursera/R Programming/Data Sets/rprog-data-specdata/specdata")
+
+pollutantmean <- function(directory, pollutant, id){
+  
+  for(i in 1:length(a)) {
+  
+  setwd(file.path(specdata))
+  a <- dir(pattern = "*.csv")
+    
+  b <- read.csv(a[i])
+  b1 <- b
+  
+  b2 <- subset(b1, pollutant & ID == id)
+ 
+  pollmean <- mean(b1$pollutant, na.rm = TRUE)
+  }
+}
+
+It doesn't run and gives me the following: 
+ Error in pollutant & ID == id : 
+  operations are possible only for numeric, logical or complex types In addition: Warning message:
+In ID == id :
+  longer object length is not a multiple of shorter object length
