@@ -4,17 +4,17 @@
 specdata <- ("C:/Users/Christian/Desktop/Coursera/R Programming/Data Sets/rprog-data-specdata/specdata")
 
 pollutantmean <- function(directory, pollutant, id){
+  setwd(file.path(directory))
+  a <- dir(pattern = "*.csv")
+  bout <- data.frame("Date" = as.Date(NA), "sulfate" = NA, "nitrate" = NA, "ID" = NA) 
   
   for(i in 1:length(a)) {
   
-  setwd(file.path(specdata))
-  a <- dir(pattern = "*.csv")
-    
   b <- read.csv(a[i])
   b1 <- b
-  
   b2 <- subset(b1, pollutant & ID == id)
  
+  bout <- rbind(bout, b2)
   pollmean <- mean(b1$pollutant, na.rm = TRUE)
   }
 }
